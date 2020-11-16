@@ -1,0 +1,16 @@
+import maya.cmds as cmds
+
+def tempProc(void):
+    list=cmds.ls(sl=1)
+    #print list
+    for tempList in list:
+        cmds.setAttr(tempList+".tx", 20)
+        
+
+
+tempWindow=cmds.window(title="test in python")
+cmds.columnLayout(adj=1)
+cmds.button(label="test", command=tempProc)
+cmds.setParent("..")
+cmds.showWindow(tempWindow)
+
