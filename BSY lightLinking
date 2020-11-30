@@ -1,0 +1,26 @@
+import maya.cmds as cmds
+
+def tempProc(void):
+    list=cmds.ls(sl=1)
+    #print list
+    for tempList in list:
+        cmds.setAttr(tempList+".tx", 20)
+
+def lightLingking(void):
+	cmds.lightlink(make=1,useActiveLights=1, useActiveObjects=1);
+		
+def breaklightLinking(void):
+	cmds.lightlink(b=1,useActiveLights=1, useActiveObjects=1)
+		
+
+
+tempWindow=cmds.window(title="test in python")
+cmds.columnLayout(adj=1)
+cmds.button(label="test", command=tempProc)
+cmds.button(label="라이트 링크", command=lightLingking)
+cmds.button(label="라이트 링크끊기", command=breaklightLinking)
+cmds.setParent("..")
+cmds.showWindow(tempWindow)
+
+
+
